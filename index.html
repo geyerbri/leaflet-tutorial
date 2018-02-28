@@ -11,7 +11,10 @@
     <div id="map-here" style="height: 500px"></div>
     <script src="leaflet/leaflet.js"></script>
     <script type="text/javascript">
-      var map = L.map('map-here').setView([42.731105, -84.475239], 17);  
+      var map = L.map('map-here').setView([42.731105, -84.475239], 17);
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://mapbox.com">Mapbox</a> simple streets; example by Brian'
+      }).addTo(map);
     </script>
   </body>
 </html>
