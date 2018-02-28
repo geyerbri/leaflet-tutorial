@@ -17,12 +17,42 @@
         id: 'mapbox.streets-basic',
         accessToken: 'pk.eyJ1IjoiZ2V5ZXJicmktbXN1IiwiYSI6IkxTRGhIQnMifQ.HbqL3TWxcEQLB61NEzCNYA'
       }).addTo(map);
-      var popupImg = "https://farm7.static.flickr.com/6223/6240985827_66d54a66b2_b.jpg",
-          popupTitle = "LEADR",
-          popupLoc = "Old Horticulture",
-          content = "<img src=" + popupImg + " style='float:left;height:150px;padding-right:10px'><strong>" + popupTitle + "</strong><br>" + popupLoc + "<div style='clear:both'></div>",
-          marker = L.marker([42.732217, -84.478339]).addTo(map);
-          marker.bindPopup(content, {minWidth: 400, autoPanPadding: [5,5], closeButton: true});
+      var pins = L.geoJSON().addTo(map);
+      var geoJSON = [
+        {
+          type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [-84.478339, 42.732217]
+            },
+            properties: {
+              title: 'LEADR',
+              building: 'Old Horticulture',
+              url: 'http://leadr.msu.edu',					
+              image: 'https://farm7.static.flickr.com/6223/6240985827_66d54a66b2_b.jpg',
+            }
+          },
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [-84.473638, 42.729234]
+            },
+            properties: {
+              title: 'Department of Anthropology',
+              building: 'Baker Hall',
+              url: 'http://anthropology.msu.edu',
+              image: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/MSU_Baker_Hall.jpg',
+            }
+          }
+      ];
+      pins.on('layeradd', function(e) {
+        var marker = e.layer,
+            feature = marker.feature,
+            content = "<img src=" + feature.properties.image + " style='float:left;height:150px; padding-right:10px'><strong><a title=" + feature.properties.title + " target='_blank' href=" + feature.properties.url + ">" + feature.properties.title + "</a></strong><br>" + feature.properties.building + "<div style='clear:both'></div>";
+        marker.bindPopup(content, {minWidth: 400, autoPanPadding: [5,5], closeButton: true});
+      });
+      pins.addData(geoJSON);
     </script>
   </body>
 </html>
