@@ -42,7 +42,7 @@ Notice the variables `{id}` and `{accessToken}`. You'll need to provide values t
 id: '{your mapbox style id}',
 accessToken: '{your mapbox access token}'
 ```
-Leave the single quotes, but replace the values with your own. Or, use one of Mapbox's public styles, listed in their [Map documentation](https://docs.mapbox.com/mapbox-gl-js/api/#map), like `mapbox://styles/mapbox/streets-v11`.
+Leave the single quotes, but replace the values with your own. Or, use one of Mapbox's public styles, listed in their [Map documentation](https://docs.mapbox.com/mapbox-gl-js/api/#map), like `mapbox/streets-v11`. Notice that the style ID is only the last two portions of the "Style URL" supplied by Mapbox. In their documentation, they describe this as a ":owner/:style".
 ## Common parameters
 You can add other common variables to the same section as `attribution`, `id`, and `accessToken`, such as `minZoom` (the furthest out a map can display), `maxZoom` (the furthest in), and others (see [full documentation](https://leafletjs.com/reference-1.6.0.html)).
 ## Set Boundaries
