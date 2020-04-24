@@ -12,9 +12,9 @@
     <script src="leaflet/leaflet.js"></script>
     <script type="text/javascript">
       var map = L.map('map-here').setView([42.731105, -84.475239], 17);
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: '&copy; <a href="http://mapbox.com">Mapbox</a> simple streets; example by Brian',
-        id: 'geyerbri-msu.0di5ymsy',
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: '&copy; <a href="https://mapbox.com" target="_blank">Mapbox</a> simple streets; example by Brian',
+        id: 'mapbox://styles/geyerbri-msu/ck9dpslls1r2y1ipb9whhud4z',
         accessToken: 'pk.eyJ1IjoiZ2V5ZXJicmktbXN1IiwiYSI6IkxTRGhIQnMifQ.HbqL3TWxcEQLB61NEzCNYA'
       }).addTo(map);
       var pins = L.geoJSON().addTo(map);
@@ -28,7 +28,7 @@
             properties: {
               title: 'LEADR',
               building: 'Old Horticulture',
-              url: 'http://leadr.msu.edu',					
+              url: 'http://leadr.msu.edu',
               image: 'https://farm7.static.flickr.com/6223/6240985827_66d54a66b2_b.jpg',
             }
           },
@@ -41,7 +41,7 @@
             properties: {
               title: 'Department of Anthropology',
               building: 'Baker Hall',
-              url: 'http://anthropology.msu.edu',
+              url: 'https://anthropology.msu.edu',
               image: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/MSU_Baker_Hall.jpg',
             }
           }

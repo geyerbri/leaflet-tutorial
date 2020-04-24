@@ -1,5 +1,5 @@
 # leaflet-tutorial
-Files for use in LEADR tutorial. The [Leaflet JS library can be found here](http://leafletjs.com/download.html). Sign up for a [Mapbox account here](https://mapbox.com). Leaflet has a [quick start guide](http://leafletjs.com/examples/quick-start/). Leaflet's more complete [documentation is here](http://leafletjs.com/reference-1.3.0.html).
+Files for use in LEADR tutorial. The [Leaflet JS library can be found here](https://leafletjs.com/download.html). Sign up for a [Mapbox account here](https://mapbox.com). Leaflet has a [quick start guide](https://leafletjs.com/examples/quick-start/). Leaflet's more complete [documentation is here](https://leafletjs.com/reference-1.6.0.html).
 ## Fork this repo
 ## Set your forked repo's Pages branch to "master"
 ## Edit index.html to add a ine below the paragraph
@@ -17,7 +17,7 @@ Files for use in LEADR tutorial. The [Leaflet JS library can be found here](http
 ## Write new script, just below the one just pasted in (still inside `body`)
 ```html
 <script type="text/javascript">
-        
+
 </script>
 ```
 ## Add the function calling the map inside the new script
@@ -28,23 +28,23 @@ At this point, if you save index.html and load the page in a browser tab, you'll
 ## Add a tile layer to the initialized map, in the same script container
 ```javascript
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://mapbox.com">Mapbox</a> simple streets; example by Brian'
+    attribution: '&copy; <a href="https://mapbox.com">Mapbox</a> simple streets; example by Brian'
 }).addTo(map);
 ```
 Note the attribution, which will add itself to the bottom-right attribution on the map. Notice the final funtion, telling it to add itself to the map that's already been initialized. The `addTo()` part is telling the browser to add the tile layer to the variable that is named "map" in the script. If you change the variable's name (some tutorias use "mymap"), the referenced variable in the `addTo()` function will need to be changed too.
 ## Swap out OpenStreetMaps for Mapbox
 Change url inside L.tileLayer to
 ```javascript
-https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}
+https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}
 ```
 Notice the variables `{id}` and `{accessToken}`. You'll need to provide values to those variables, in the same way that the map's `attribution` is provided. Get these from your own Mapbox account. Add a comma to the end of the `attribution` line, then add these two lines below that:
 ```javascript
-id: '{your mapbox map id}',
+id: '{your mapbox style id}',
 accessToken: '{your mapbox access token}'
 ```
-Leave the single quotes, but replace the values with your own. Or, use one of [Mapbox's public styles](https://www.mapbox.com/api-documentation/#maps), like `mapbox.streets-basic`.
+Leave the single quotes, but replace the values with your own. Or, use one of Mapbox's public styles, listed in their [Map documentation](https://docs.mapbox.com/mapbox-gl-js/api/#map), like `mapbox://styles/mapbox/streets-v11`.
 ## Common parameters
-You can add other common variables to the same section as `attribution`, `id`, and `accessToken`, such as `minZoom` (the furthest out a map can display), `maxZoom` (the furthest in), and others (see [full documentation](http://leafletjs.com/reference-1.3.0.html)).
+You can add other common variables to the same section as `attribution`, `id`, and `accessToken`, such as `minZoom` (the furthest out a map can display), `maxZoom` (the furthest in), and others (see [full documentation](https://leafletjs.com/reference-1.6.0.html)).
 ## Set Boundaries
 Set the map boundaries, so that the user can't scroll the map to another part of the world. Start by defining two new variables just above `map`, with their values using the LatLng function to define two points with latitude and longitude:
 ```javascript
@@ -93,7 +93,7 @@ var geoJSON = [
       properties: {
         title: 'Department of Anthropology',
         building: 'Baker Hall',
-        url: 'http://anthropology.msu.edu',
+        url: 'https://anthropology.msu.edu',
         image: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/MSU_Baker_Hall.jpg',
       }
     }
