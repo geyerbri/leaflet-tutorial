@@ -37,8 +37,10 @@ Change url inside L.tileLayer to
 ```javascript
 https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}
 ```
-Notice the variables `{id}` and `{accessToken}`. You'll need to provide values to those variables, in the same way that the map's `attribution` is provided. Get these from your own Mapbox account. Add a comma to the end of the `attribution` line, then add these two lines below that:
+Notice the variables `{id}` and `{accessToken}`. You'll need to provide values to those variables, in the same way that the map's `attribution` is provided. Get these from your own Mapbox account. Add a comma to the end of the `attribution` line, then add these four lines below that (the first two account for size differences between Mapbox styles and LeafletJS expectations):
 ```javascript
+tileSize: 512,
+zoomOffset: -1,
 id: '{your mapbox style id}',
 accessToken: '{your mapbox access token}'
 ```
